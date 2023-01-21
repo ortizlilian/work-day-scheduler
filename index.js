@@ -1,12 +1,10 @@
-// 1. Show the current date at the top
-//      Use moment api and format today date
-//      Add it to the `currentDay` element
+// Displays the current time and date in the jumbutron 
 var today = moment();
 $("#currentDay").text(today.format('MMMM Do YYYY, LTS'));
 
 // 2. Colour code each block based on the current time
 //      Create variables to target each time block
-//      In the html add the data-hour which represent which hour each element is
+//      In the html add the data-hour that represents which hour each element is
 //      Create variable for moment().format(H) (0 - 23) e.g. thisHour
 //      timeblocks = $('.timeblock')
 //      timeblocks.each(function(this) {
