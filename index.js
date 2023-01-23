@@ -1,22 +1,59 @@
 // Displays the current time and date in the jumbutron 
-var today = moment();
-$("#currentDay").text(today.format('MMMM Do YYYY, LTS'));
+// var today = moment();
+$("#currentDay").text(moment().format('MMMM Do YYYY, LTS'));
 
 // 2. Colour code each block based on the current time
 //      Create variables to target each time block
+
+var timeblocks = $('.timeblock');
+// console.log(timeblocks);
+// console.log(timeblocks[0].attr('hour'));
+// var timeblock1 = timeblocks[0].attr('data-hour'); // O PROBLEMA TA AQUI .attr('data-hour')
+// console.log(timeblock1);
+// console.log(timeblocks);
 //      In the html add the data-hour that represents which hour each element is
 //      Create variable for moment().format(H) (0 - 23) e.g. thisHour
-//      timeblocks = $('.timeblock')
-//      timeblocks.each(function(this) {
-//          var hour = this.attr('data-hour');
-//          if (hour < thisHour) {
-//              this.css('background-color', pastColour)
-//          } else if (hour == thisHour) {
-//              this.css('background-color', presentColour)
-//          } else {
-//              this.css('background-color', futureColour)
-//          }
-//      })
+// function setColor() {
+//     var thisHour = moment().format('H');
+
+//     for (let i = 0; i < timeblocks.length; i++) {
+//         if (this.attr('data-hour') < thisHour) {
+//             this.css({'background-color': '#bfbfbf'});
+//         }    
+//     }
+// }
+// setColor();
+    // timeblocks.forEach(function () {
+    //     console.log(this);
+//         if (element.attr('data-hour') < thisHour) {
+//             element.css({'background-color': '#bfbfbf'});
+//         } else if (element.attr('data-hour') == thisHour) {
+//             element.css({'background-color': '#f54242'});
+//         } else {
+//             element.css({'background-color': '#42f55d'});
+//         }
+    // });
+// }
+
+// setColor();
+  
+    timeblocks.each(function(index, value) {
+        console.log(value.dataset.hour);
+        let thisHour = moment().format('H');
+        // console.log(thisHour);
+        let hour = Number(value.dataset.hour);
+        if (hour < thisHour) {
+            $(this).css({'background-color': '#bfbfbf'});
+            
+        } else if (hour == thisHour) {
+            $(this).css({'background-color': '#f54242'});
+        } else {
+            $(this).css({'background-color': '#42f55d'});
+            console.log(hour, thisHour);
+        }
+    });
+
+
 // 3. Save input to local storage
 //      create variable (an array) called inputs that will store all of the input data
 //      Add event listener to all save button
