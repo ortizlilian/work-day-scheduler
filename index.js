@@ -24,7 +24,7 @@ timeblocks.each(function(index, value) {
     }
 });
 
-// Gets input and ID and saves it to local storage
+// Gets input and ID and saves them to local storage
 $("button").on("click", function() {
     localStorage.setItem($(this).attr("data-buttonform"), $("#" + $(this).attr("data-buttonform")).val());
 });
